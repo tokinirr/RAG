@@ -32,3 +32,7 @@ def split_sentences(text: str) -> list[str]:
         for sentence in sentences
         if sentence.strip()
     ]
+
+
+def estimate_tokens(text: str) -> int:
+    return int(len(text.split()) * 1.3)
