@@ -36,3 +36,10 @@ def split_sentences(text: str) -> list[str]:
 
 def estimate_tokens(text: str) -> int:
     return int(len(text.split()) * 1.3)
+
+
+def get_last_words(text: str, n: int) -> str:
+    words: list[str] = text.split()
+    if not words:
+        return ""
+    return " ".join(words[-n:])
