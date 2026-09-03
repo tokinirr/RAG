@@ -1,5 +1,4 @@
 import re
-from typing import Any
 
 
 def clean_text(text: str) -> str:
@@ -16,10 +15,20 @@ def clean_text(text: str) -> str:
 
 
 def split_paragraphs(text: str) -> list[str]:
-    pargraphs: list[str | Any] = re.split(r"\n\s*\n", text)
+    pargraphs: list[str] = re.split(r"\n\s*\n", text)
 
     return [
         paragraph.strip()
         for paragraph in pargraphs
         if paragraph.strip()
+    ]
+
+
+def split_sentences(text: str) -> list[str]:
+    sentences: list[str] = re.split(r"(?<=[.!?])\s+", text)
+
+    return [
+        sentence.strip()
+        for sentence in sentences
+        if sentence.strip()
     ]
